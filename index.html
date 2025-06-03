@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>MAP Bengaluru Replica (Header + Footer Test)</title>
+
+  <!-- Google Fonts (Montserrat + Poppins) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS via CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #1a1a1a;
+      background-color: #000;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    /* MAP’s exact hex variables */
+    :root {
+      --map-yellow: #f9b700;
+      --map-yellow-hover: #e0ad00;
+      --section-gray: #f9f9f9;
+      --footer-bg: #1a1a1a;
+      --footer-text: #b3b3b3;
+    }
+
+    /* Hide header on scroll */
+    header.absolute {
+      transition: opacity 0.3s ease;
+    }
+    body.scrolled header.absolute {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Class helpers (make sure to use normal dashes) */
+    .bg-section-gray {
+      background-color: var(--section-gray);
+    }
+    .bg-footer-exact {
+      background-color: var(--footer-bg);
+    }
+    .text-footer-exact {
+      color: var(--footer-text);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+<header class="bg-black">
+  <!--–––––– Padded container now only large on desktop ––––––-->
+  <div class="px-4 py-4 lg:px-24 lg:py-8">
+    <div class="flex items-center justify-between h-24">
+      <!-- ======= LOGO ======= -->
+      <div class="flex-shrink-0">
+        <!-- Mobile logo (shown on <lg) -->
+        <a href="" class="block lg:hidden">
+          <img src="map-india-logo-mobile.svg" alt="MAP Logo (mobile)" class="h-10 w-auto" />
+        </a>
+        <!-- Desktop logo (shown on ≥lg) -->
+        <a href="" class="hidden lg:block">
+          <img src="mapindia-logo-white-min.svg" alt="MAP Logo (desktop)" class="h-20 w-auto" />
+        </a>
+      </div>
+
+      <!-- ======= DESKTOP‑ONLY: Icons + Nav Links ======= -->
+      <div class="hidden lg:flex flex-col items-end space-y-4">
+        <!-- 1) Top Icons -->
+        <div class="flex items-center space-x-6">
+          <!-- Search Icon -->
+          <button aria-label="Search" class="text-white hover:text-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
+            </svg>
+          </button>
+          <!-- My Account Icon -->
+          <a href="" aria-label="My Account" class="text-white hover:text-gray-300">
+            <img src="https://map-india.org/wp-content/themes/maptheme20/assets/images/account_circle.svg"
+                 alt="Account Icon" class="h-6 w-6" />
+          </a>
+          <!-- Accessibility Icon -->
+          <button aria-label="Accessibility" class="text-white hover:text-gray-300 focus:outline-none">
+            <img src="https://map-india.org/wp-content/themes/maptheme20/assets/images/carbon_accessibility-alt.svg"
+                 alt="Accessibility Icon" class="h-6 w-6" />
+          </button>
+        </div>
+        <!-- 2) Navigation Links -->
+        <nav class="flex items-center space-x-2">
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Visit Us</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Support Us</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Exhibitions</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Events</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Education</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Shop</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">About</a><span class="text-gray-500">|</span>
+  <a href="" class="text-white text-sm font-medium hover:text-gray-300">Contact</a>
+</nav>
+
+      </div>
+
+      <!-- ======= MOBILE HEADER CONTROLS ======= -->
+      <div class="lg:hidden flex items-center space-x-4">
+        <!-- Search Icon (mobile) -->
+        <button aria-label="Search" class="text-white hover:text-gray-300 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
+          </svg>
+        </button>
+        <!-- My Account Icon (mobile) -->
+        <a href="" aria-label="My Account" class="text-white hover:text-gray-300">
+          <img src="https://map-india.org/wp-content/themes/maptheme20/assets/images/account_circle.svg"
+               alt="Account Icon" class="h-6 w-6" />
+        </a>
+        <!-- Mobile Menu Toggle (hamburger / X) -->
+        <button id="mobile-menu-btn" class="text-white focus:outline-none" aria-label="Open menu">
+          <!-- Hamburger icon (shown by default) -->
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <!-- X icon (hidden by default) -->
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--–––––– MOBILE MENU (full‑width) ––––––-->
+  <div id="mobile-menu" class="lg:hidden hidden bg-black bg-opacity-90">
+    <div class="px-4 py-6 space-y-4">
+      <!-- NO icons here, since they are already next to the hamburger in the header -->
+      <!-- Mobile links (stacked) -->
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Visit Us</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Support Us</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Exhibitions</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Events</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Education</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Shop</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">About</a>
+      <a href="" class="block text-white py-2 px-3 hover:bg-gray-800 rounded">Contact</a>
+    </div>
+  </div>
+</header>
+
+  <!-- PLACEHOLDER MAIN CONTENT -->
+  <main class="pt-20 bg-white min-h-screen">
+    <div class="max-w-4xl mx-auto py-20 text-center">
+      <h1 class="text-4xl font-semibold text-gray-900 mb-4">
+        Placeholder Hero / Body
+      </h1>
+      <p class="text-gray-700">
+        Your actual hero section (with background image) will go here.
+      </p>
+    </div>
+  </main>
+
+  <footer class="bg-footer-exact text-footer-exact py-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <!-- LEFT: Social Icons -->
+      <div class="flex items-center space-x-4">
+        <!-- Instagram -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.849.069 1.366.062 2.633.341 3.608 1.315.975.975 1.253 2.242 1.315 3.608.058 1.266.069 1.645.069 4.849 0 3.203-.012 3.583-.069 4.848-.062 1.366-.34 2.633-1.315 3.608-.976.976-2.242 1.254-3.608 1.316-1.265.058-1.645.069-4.849.069-3.203 0-3.583-.012-4.848-.069-1.366-.062-2.632-.34-3.608-1.315C2.175 15.796 2.163 15.417 2.163 12 0 3.204.012-4."/>
+          </svg>
+        </a>
+        <!-- Twitter -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.607 1.793-1.569 2.163-2.723-.951.555-2.005.959-3.127 1.184-.897-.955-2.178-1.55-3.594-1.55-2.723 0-4.928 2.206-4.928 4.93 0 .386.044.762.127 1.124C7.728 8.312 4.1 6.343 1.671 3.149c-.423.725-.666 1.562-.666 2.46 0 1.7.864 3.193 2.178 4.073-.803-.026-1.56-.246-2.223-.616v.062c0 2.374 1.688 4.355 3.93 4.805-.412.112-.847.171-1.293.171-.316 0-.624-.03-.924-.086.626 1.956 2.444 3.381 4.6 3.42-1.683 1.321-3.81 2.105-6.116 2.105-.397 0-.79-.023-1.177-.069 2.179 1.397 4.768 2.215 7.557 2.215 9.054 0 14.001-7.497 14.001-13.986 0-.213 0-.425-.015-.636.963-.695 1.798-1.562 2.458-2.55z"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M22.675 0h-21.35C.592 0 0 .593 0 1.326v21.348C0 23.407.592 24 1.325 24H12v-9.294H9.294v-3.622H12V8.411c0-2.722 1.669-4.201 4.102-4.201 1.164 0 2.163.087 2.454.125v2.846l-1.681.001c-1.318 0-1.575.628-1.575 1.549v2.031h3.15l-.411 3.622h-2.739V24h5.369c.733 0 1.325-.593 1.325-1.326V1.326C24 .593 23.408 0 22.675 0z"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M20.447 20.452H17.6v-5.569c0-1.328-.023-3.036-1.852-3.036-1.853 0-2.136 1.445-2.136 2.939v5.666h-2.85V9h2.737v1.561h.039c.38-.718 1.309-1.472 2.695-1.472 2.881 0 3.414 1.897 3.414 4.362v6.001zM5.337 7.433c-.912 0-1.65-.739-1.65-1.65 0-.911.738-1.65 1.65-1.65s1.65.739 1.65 1.65c0 .911-.738 1.65-1.65 1.65zm1.427 13.019H3.91V9h2.854v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.727v20.545C0 23.229 .792 24 1.771 24h20.452C23.2 24 24 23.229 24 22.271V1.727C24 .771 23.2 0 22.225 0z"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M23.498 6.186c-.28-1.055-1.105-1.884-2.159-2.166C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.338.52c-1.054.282-1.879 1.111-2.158 2.166C0.5 8.0 0.5 12 0.5 12s0 4 .005 5.814c.279 1.055 1.104 1.884 2.158 2.166 1.738.52 9.338.52 9.338.52s7.6 0 9.338-.52c1.055-.282 1.879-1.111 2.159-2.166.005-1.814.005-5.814.005-5.814s0-4 -.007-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/>
+          </svg>
+        </a>
+        <!-- Pinterest -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.415 7.634 11.113-.04-.945-.008-2.079.252-3.256.275-.846 1.775-5.729 1.775-5.729s-.446-.892-.446-2.209c0-2.067 1.199-3.614 2.693-3.614 1.27 0 1.883.954 1.883 2.096 0 1.277-.814 3.187-1.233 4.958-.35 1.481.742 2.688 2.202 2.688 2.642 0 4.417-3.104 4.417-7.572 0-3.95-2.837-6.708-6.889-6.708-4.693 0-7.463 3.522-7.463 7.173 0 1.278.49 2.65 1.101 3.397a.444.444 0 01.102.426c-.115.473-.372 1.506-.422 1.716-.066.293-.218.356-.505.214-1.889-.861-3.067-3.623-3.067-5.828 0-4.745 3.451-9.118 9.955-9.118 5.216 0 9.276 3.72 9.276 8.693 0 5.192-2.915 9.384-6.951 9.384-1.355 0-2.626-.695-3.059-1.519 0 0-.73 2.884-.91 3.508-.133.502-.398 1.006-.646 1.393 1.157.36 2.377.554 3.66.554 6.627 0 11.999-5.372 11.999-11.999C24 5.372 18.627 0 12 0z"/>
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M20.52 3.478a11.868 11.868 0 00-8.375-3.478C5.458 0 0 5.458 0 12.239c0 2.16.566 4.279 1.64 6.107L0 24l5.814-1.51a11.939 11.939 0 004.41.868h.005c6.541 0 11.517-5.376 11.517-11.999 0-3.195-1.245-6.191-3.416-8.411zm-8.384 17.012h-.004a9.777 9.777 0 01-4.973-1.296l-.356-.21-3.44.892.92-3.355-.23-.345a9.734 9.734 0 011.497-12.715 9.833 9.833 0 0112.972 .27 9.773 9.773 0 013.063 6.956c0 5.442-4.393 9.87-9.783 9.87zm5.338-7.302c-.293-.147-1.731-.853-1.998-.951-.267-.098-.462-.147-.657.147s-.754.951-.923 1.148c-.168.196-.337.221-.63.074-.293-.147-1.236-.455-2.358-1.466-.872-.777-1.46-1.735-1.63-2.028-.168-.294-.018-.453.13-.6.134-.133.294-.347.441-.52.15-.174.2-.294.302-.49.1-.196.05-.367-.025-.514-.074-.147-.657-1.582-.9-2.176-.237-.574-.478-.496-.657-.505l-.56-.01c-.196-.005-.514.074-.783.367s-1.028 1.005-1.028 2.448 1.052 2.834 1.195 3.035c.147.196 2.067 3.16 5.006 4.42.7.302 1.246.482 1.67.618.7.227 1.337.195 1.842.118.561-.085 1.731-.707 1.974-1.39.244-.683.244-1.27.17-1.39-.074-.098-.268-.147-.56-.294z"/>
+          </svg>
+        </a>
+        <!-- Email -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor"
+               viewBox="0 0 24 24">
+            <path d="M20 4H4C2.897 4 2 4.897 2 6v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2l-8 5-8-5v-0.5l8 5 8-5V6zm0 12H4V8l8 5 8-5v10z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- CENTER: Text + Policies -->
+      <div class="text-sm text-center space-x-2">
+        <span>© Museum of Art & Photography 2024. All rights reserved.</span>
+        <span class="text-gray-500">|</span>
+        <a href="#" class="hover:text-white">Policies & Statements</a>
+        <span class="text-gray-500">|</span>
+        <a href="#" class="hover:text-white">Safeguarding Policy</a>
+        <span class="text-gray-500">|</span>
+        <a href="#" class="hover:text-white">PoSH Policy</a>
+      </div>
+
+      <!-- RIGHT: Home + Back-to-Top Icons -->
+      <div class="flex items-center space-x-4">
+        <!-- Home Icon -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 9.75L12 3l9 6.75v11.25a1.5 1.5 0 01-1.5 1.5H4.5a1.5 1.5 0 01-1.5-1.5V9.75zM9 22.5V12h6v10.5" />
+          </svg>
+        </a>
+        <!-- Back to Top Icon -->
+        <a href="#" class="hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 15l7-7 7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- JS for header behavior -->
+  <!-- JS to toggle mobile menu & swap icons -->
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  btn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    mobileIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  });
+</script>
+</body>
+</html>
