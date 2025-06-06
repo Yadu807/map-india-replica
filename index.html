@@ -65,6 +65,53 @@
     .text-footer-exact {
       color: var(--footer-text);
     }
+
+    /* 1. Make sure each card has position: relative */
+  .card {
+    position: relative;
+    background-color: #1f1f1f; /* dark gray, or whatever matches your design */
+    border-radius: 0.5rem;     /* same as Tailwind’s rounded-lg */
+    overflow: hidden;
+  }
+
+  /* 2. The “underline” starts at 0 width, sits at bottom-left */
+  .card-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.25rem;               /* matches Tailwind’s h-1 */
+    width: 0;
+    background-color: #ec008c;      /* exactly the pink you want (Tailwind’s rose-600) */
+    transition: width 0.3s ease;    /* animate over 300ms */
+  }
+  .card-underline-white {
+  background-color: #ffffff;
+}
+.card-underline-pink {
+  background-color: #ec008c; /* your pink used elsewhere */
+}
+
+.card-underline-yellow {
+  background-color: #f9b700; /* MAP’s yellow */
+}
+.card-underline-red {
+  background-color: #f11014; /* MAP’s yellow */
+}
+
+
+  /* 3. When the user hovers the parent .card, grow width to 100% */
+  .card:hover .card-underline {
+    width: 100%;
+  }
+  
+
+  .max-w-between-6xl-7xl {
+    max-width: 76rem; /* or whatever intermediate value you prefer */
+  }
+
+  .max-w-between-6xl-7xl {
+  max-width: 76rem; 
+}
   </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
@@ -171,8 +218,7 @@
     </div>
   </div>
 </header>
-
-  <!-- Top Section -->
+<!-- Top Section -->
 <section class="bg-black text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     
@@ -187,7 +233,7 @@
         </p>
       </div>
       <a
-        href=""
+        href="https://map-india.org/newsletter/"
         target="_self"
         tabindex="0"
         class="hidden md:inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded"
@@ -196,19 +242,18 @@
       </a>
     </div>
 
-    <!-- Carousel: showing two slides side by side (with peek of neighbors) -->
+      <!-- Carousel: outer viewport -->
     <div class="relative mt-12">
-      <!-- Outer “viewport” with overflow-hidden -->
-      <div class="overflow-hidden">
-        <!-- Inner flex container holding all slides -->
+      <!-- 1) Overflow-hidden viewport, 100% width -->
+      <div class="w-full overflow-hidden">
+        <!-- 2) Inner flex holding all slides -->
         <div
           id="carousel-inner"
-          class="flex space-x-6 transition-transform duration-500 ease-in-out"
+          class="flex transition-transform duration-500 ease-in-out"
           style="transform: translateX(0%);"
         >
-          
           <!-- Slide 1 -->
-          <div class="relative min-w-[60%] md:min-w-[45%] lg:min-w-[40%]">
+          <div class="relative flex-none w-[90%] md:w-[75%] lg:w-[60%] pr-6">
             <img
               src="1.png"
               alt="New Exhibition at MAP"
@@ -217,8 +262,8 @@
             <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
             <div class="absolute bottom-6 left-6 text-white">
               <p class="text-xs uppercase tracking-widest mb-1">New Exhibition at MAP</p>
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">Vaanyerum Vizhuſthugal: Roots that Reach for the Sky</h3>
-              <p class="text-sm mb-4">Apr 19, 2025 – Jul 20, 2025</p>
+              <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Vaanyerum Vizhuſthugal: Roots that Reach for the Sky</h3>
+              <p class="text-sm mb-4">Apr 19, 2025 – Jul 20, 2025</p>
               <a
                 href="#"
                 class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-4 py-2 rounded"
@@ -229,7 +274,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="relative min-w-[60%] md:min-w-[45%] lg:min-w-[40%]">
+          <div class="relative flex-none w-[90%] md:w-[75%] lg:w-[60%] pr-6">
             <img
               src="2.png"
               alt="Guided Walk"
@@ -238,8 +283,8 @@
             <div class="absolute inset-0 bg-gray-800 bg-opacity-50 rounded-lg"></div>
             <div class="absolute bottom-6 left-6 text-white">
               <p class="text-xs uppercase tracking-widest mb-1">Guided Walk</p>
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">The Law Otherwise: Feminist Legal Journeys</h3>
-              <p class="text-sm mb-4">June 3, 2025</p>
+              <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">The Law Otherwise: Feminist Legal Journeys</h3>
+              <p class="text-sm mb-4">June 3, 2025</p>
               <a
                 href="#"
                 class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-4 py-2 rounded"
@@ -249,8 +294,8 @@
             </div>
           </div>
 
-          <!-- Slide 3  -->
-          <div class="relative min-w-[60%] md:min-w-[45%] lg:min-w-[40%]">
+          <!-- Slide 3 -->
+          <div class="relative flex-none w-[90%] md:w-[75%] lg:w-[60%] pr-6">
             <img
               src="3.png"
               alt="Upcoming Event"
@@ -259,8 +304,8 @@
             <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
             <div class="absolute bottom-6 left-6 text-white">
               <p class="text-xs uppercase tracking-widest mb-1">Upcoming Event</p>
-              <h3 class="text-xl md:text-2xl font-semibold mb-2">Artist Talk: Creative Ecologies</h3>
-              <p class="text-sm mb-4">July 15, 2025</p>
+              <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Artist Talk: Creative Ecologies</h3>
+              <p class="text-sm mb-4">July 15, 2025</p>
               <a
                 href="#"
                 class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-4 py-2 rounded"
@@ -269,8 +314,29 @@
               </a>
             </div>
           </div>
+          
+          <!-- Slide 4 (duplicate for demonstration) -->
+          <div class="relative flex-none w-[90%] md:w-[75%] lg:w-[60%] pr-6">
+            <img
+              src="4.png"
+              alt="Another Event"
+              class="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <p class="text-xs uppercase tracking-widest mb-1">Another Event</p>
+              <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Art in Dialogue: The Journey of Ravikumar Kashi</h3>
+              <p class="text-sm mb-4">Aug 10, 2025</p>
+              <a
+                href="#"
+                class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-4 py-2 rounded"
+              >
+                Discover
+              </a>
+            </div>
+          </div>
 
-          <!-- (Add more slides similarly…) -->
+          <!-- (Add more slides…) -->
         </div>
       </div>
 
@@ -280,10 +346,10 @@
         class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full focus:outline-none"
         aria-label="Previous Slide"
       >
-        <svg xmlns="slider-circle-arrow-prev.svg" class="h-6 w-6" fill="none"
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 19l-7-7 7-7" />
+                d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
@@ -293,16 +359,519 @@
         class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full focus:outline-none"
         aria-label="Next Slide"
       >
-        <svg xmlns="slider-circle-arrow-next.svg" class="h-6 w-6" fill="none"
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 5l7 7-7 7" />
+                d="M9 5l7 7-7 7" />
         </svg>
       </button>
     </div>
   </div>
 </section>
+<section class="bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl font-semibold mb-8 text-gray-400" tabindex="0">
+      Ongoing Exhibitions
+    </h2>
 
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <article class="card"> <!-- added “card” here -->
+        <!-- Image + “On View” Tag -->
+        <figure class="relative">
+          <img
+            src="c1.jpg"
+            alt="VISIBLE/INVISIBLE: Representation of Women in Art"
+            class="w-full h-48 object-cover"
+          />
+          <span
+            class="absolute top-3 left-3 bg-pink-600 text-white text-xs font-semibold uppercase px-2 py-1 rounded"
+            tabindex="0"
+          >
+            On View
+          </span>
+        </figure>
+
+        <!-- Text Content -->
+        <div class="px-4 py-6 bg-gray-900">
+          <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-1" tabindex="0">
+            Exhibitions
+          </h5>
+          <h3 class="text-lg font-semibold text-white mb-2 leading-snug" tabindex="0">
+            VISIBLE/INVISIBLE: Representation of Women in Art through the MAP Collection
+          </h3>
+          <p class="text-lg font-semibold  mb-2 leading-snug" style="color: #38B2AC;" tabindex="0">
+            Feb 18, 2023 – Dec 1, 2025
+          </p>
+        </div>
+
+        <!-- Pink Underline: plain CSS handles the hover -->
+        <div class="card-underline"></div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <figure class="relative">
+          <img
+            src="c2.png"
+            alt="We don’t end at our edges"
+            class="w-full h-48 object-cover"
+          />
+          <span
+            class="absolute top-3 left-3 bg-pink-600 text-white text-xs font-semibold uppercase px-2 py-1 rounded"
+            tabindex="0"
+          >
+            On View
+          </span>
+        </figure>
+        <div class="px-4 py-6 bg-gray-900">
+          <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-1" tabindex="0">
+            Exhibitions
+          </h5>
+          <h3 class="text-lg font-semibold text-white mb-2 leading-snug" tabindex="0">
+            We don’t end at our edges
+          </h3>
+          <p class="text-lg font-semibold  mb-2 leading-snug" style="color: #38B2AC;" tabindex="0">
+            Mar 8, 2025 – Jun 15, 2025
+          </p><br><br>
+        </div>
+        <div class="card-underline"></div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <figure class="relative">
+          <img
+            src="c3.png"
+            alt="Ticket Tika Chaap: The Art of the Trademark in Indo-British Textile Trade"
+            class="w-full h-48 object-cover"
+          />
+          <span
+            class="absolute top-3 left-3 bg-pink-600 text-white text-xs font-semibold uppercase px-2 py-1 rounded"
+            tabindex="0"
+          >
+            On View
+          </span>
+        </figure>
+        <div class="px-4 py-6 bg-gray-900">
+          <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-1" tabindex="0">
+            Exhibitions
+          </h5>
+          <h3 class="text-lg font-semibold text-white mb-2 leading-snug" tabindex="0">
+            Ticket Tika Chaap: The Art of the Trademark in Indo-British Textile Trade
+          </h3>
+          <p class="text-lg font-semibold  mb-2 leading-snug" style="color: #38B2AC;" tabindex="0">
+            Mar 22, 2025 – Nov 2, 2025
+          </p>
+        </div>
+        <div class="card-underline"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- Memberships Banner -->
+<section class="relative mx-auto max-w-between-6xl-7xl overflow-hidden rounded-lg">
+  <!-- Mobile Image (visible on < lg) -->
+  <img
+    src="https://map-india.org/wp-content/uploads/2024/11/Homepage-CTA-Banner-Mobile-with-Gradient.jpg"
+    alt="Become a MAP Member (mobile banner)"
+    class="block lg:hidden w-full h-auto object-cover"
+  />
+
+  <!-- Desktop Image (visible on ≥ lg) -->
+  <img
+    src="cl.jpg"
+    alt="Become a MAP Member (desktop banner)"
+    class="hidden lg:block w-full h-auto object-cover"
+  />
+
+  <!-- Purple Overlay + Text Content -->
+  <div
+    class="absolute inset-0 flex flex-col justify-start px-4 sm:px-6 lg:px-12 py-24"
+  >
+    <!-- Title -->
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" tabindex="0">
+      Become a MAP Member!
+    </h2>
+
+    <!-- Description -->
+    <p class="text-white text-sm md:text-base mt-16 mb-6" tabindex="0">
+  Become a MAP Member and enjoy exclusive perks, including unlimited entry, discounts,<br>
+  access to the member’s lounge.
+    </p>
+
+    <!-- Call-to-Action Button -->
+   <a
+  href=""
+  target="_blank"
+  tabindex="0"
+    class="inline-block bg-white text-black font-medium px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition w-auto max-w-max"
+
+>
+  Know More
+</a>
+
+  </div>
+</section>
+
+<!-- <br><br><br> -->
+
+<!-- EXPLORE SECTION -->
+<section class="bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Section Title -->
+    <h2 class="text-3xl font-semibold text-gray-400 mb-8" tabindex="0">
+      Explore
+    </h2>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+   
+      <!-- Card 1 -->
+     
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb1.jpg');"
+      >
+        <!-- Full-card link -->
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Our Collection"
+        ></a>
+
+        <!-- Icon -->
+        <img
+          src="e1.svg"
+          alt="Collection Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+
+        <!-- Title + Underline Container -->
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Our Collection
+          </p>
+          <!-- White underline -->
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+     
+      <!-- Card 2 -->
+      
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb2.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Accessibility"
+        ></a>
+        <img
+          src="e2.svg"
+          alt="Accessibility Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Accessibility
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+     
+      <!-- Card 3 -->
+      
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb3.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Online Exhibitions"
+        ></a>
+        <img
+          src="e3.svg"
+          alt="Online Exhibitions Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Online Exhibitions
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+    
+      <!-- Card 4 -->
+     
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb4.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Projects & More"
+        ></a>
+        <img
+          src="e4.svg"
+          alt="Projects & More Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Projects &amp; More
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+   
+      <!-- Card 5 -->
+   
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb1.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Support MAP"
+        ></a>
+        <img
+          src="e1.svg"
+          alt="Support MAP Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Support MAP
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+     
+      <!-- Card 6 -->
+      
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb2.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Restaurant"
+        ></a>
+        <img
+          src="e2.svg"
+          alt="Restaurant Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Restaurant
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+      
+      <!-- Card 7 -->
+     
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb3.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Read"
+        ></a>
+        <img
+          src="e3.svg"
+          alt="Read Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Read
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+      
+      <!-- Card 8 -->
+     
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb4.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Watch"
+        ></a>
+        <img
+          src="e4.svg"
+          alt="Watch Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Watch
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+
+      
+      <!-- Card 9  -->
+      
+      <div
+        class="card relative h-40 bg-cover bg-center rounded-lg overflow-hidden"
+        style="background-image: url('eb1.jpg');"
+      >
+        <a
+          href=""
+          class="absolute inset-0"
+          tabindex="0"
+          aria-label="Learn"
+        ></a>
+        <img
+          src="e1.svg"
+          alt="Learn Icon"
+          class="absolute top-4 left-4 h-8 w-auto"
+        />
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white text-lg font-medium" tabindex="0">
+            Learn
+          </p>
+          <div class="card-underline card-underline-white"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Section Heading -->
+    <h2 class="text-2xl md:text-2xl lg:text-4xl font-semibold text-gray-400 mb-6" tabindex="0">
+      Learn about Art History with the MAP Academy
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1: -->
+      <article class="card">
+      
+        <a
+          href=""
+          target="_blank"
+          class="absolute inset-0 z-10"
+          aria-label="A History of Indian Craft: 1850s to the Present"
+          tabindex="0"
+        ></a>
+
+    
+        <img
+          src="cc1.png"
+          alt="A History of Indian Craft: 1850s to the Present"
+          class="w-full h-48 object-cover"
+        />
+
+
+        <div class="px-4 py-6 bg-gray-900 relative">
+          <h3 class="text-lg font-semibold text-white mb-2 leading-snug" tabindex="0">
+            A History of Indian Craft: 1850s to the Present
+          </h3>
+          <!--  red underline -->
+          <div class="card-underline card-underline-red"></div>
+        </div>
+      </article>
+
+      <!--Card 2 -->
+      <article class="card">
+        <a
+          href=""
+          target="_blank"
+          class="absolute inset-0 z-10"
+          aria-label="Modern &amp; Contemporary Indian Art"
+          tabindex="0"
+        ></a>
+        <img
+          src="cc2.jpg"
+          alt="Modern &amp; Contemporary Indian Art"
+          class="w-full h-48 object-cover"
+        />
+        <div class="px-4 py-6 bg-gray-900 relative">
+          <h3 class="text-lg font-semibold text-white mb-2 leading-snug" tabindex="0">
+            Modern &amp; Contemporary Indian Art
+          </h3><br>
+          <!-- Yellow underline -->
+          <div class="card-underline card-underline-yellow"></div>
+        </div>
+      </article>
+
+      <!--Card 3 -->
+      <article class="card">
+        <a
+          href=""
+          target="_blank"
+          class="absolute inset-0 z-10"
+          aria-label="Encyclopedia of Art"
+          tabindex="0"
+        ></a>
+        <img
+          src="cc3.jpg"
+          alt="Encyclopedia of Art"
+          class="w-full h-48 object-cover"
+        />
+        <div class="px-4 py-6 bg-gray-900 relative">
+          <h3 class="text-lg font-semibold text-white mb-2 leading-snug" tabindex="0">
+            Encyclopedia of Art
+          </h3><br>
+          <!-- Pink underline  -->
+          <div class="card-underline card-underline-pink"></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="max-w-between-6xl-7xl mx-auto bg-pink-600 px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row justify-between items-center py-10">
+      <h2 class="text-white text-lg sm:text-xl font-medium text-center sm:text-left">
+        Get updates about our Events &amp; Exhibitions in your inbox
+      </h2>
+
+      <button
+        type="button"
+        class="mt-4 sm:mt-0 bg-white text-black font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
+      >
+        Subscribe
+      </button>
+    </div>
+  </div>
+</section><br>
 
 <section class="bg-gray-900 text-footer-exact">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -454,39 +1023,42 @@
     const prevBtn = document.getElementById("carousel-prev");
     const nextBtn = document.getElementById("carousel-next");
     const slides = Array.from(carouselInner.children);
+    const totalSlides = slides.length;
     let currentIndex = 0;
-    
-    // Calculate how many slides are “fully visible” in the viewport at once.
-    // We’ll use min-w-[60%]/min-w-[45%]/min-w-[40%] breakpoints, but for simplicity,
-    // let’s move by one “card” each click (100% of that card’s width):
-    const slideWidth = slides[0].getBoundingClientRect().width + parseInt(getComputedStyle(slides[0]).marginRight);
+
+    // Compute one slide’s full width (including its right padding/margin):
+    function getSlideWidth() {
+      const slide = slides[0];
+      const style = getComputedStyle(slide);
+      // element width + right padding + right border + right margin
+      const width = slide.getBoundingClientRect().width;
+      const marginRight = parseFloat(style.marginRight);
+      return width + marginRight;
+    }
 
     function updateCarousel() {
-      // Move the flex container left by (currentIndex * cardWidth)
-      carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      const slideWidth = getSlideWidth();
+      const offset = slideWidth * currentIndex;
+      carouselInner.style.transform = `translateX(-${offset}px)`;
     }
 
     prevBtn.addEventListener("click", () => {
-      currentIndex = Math.max(currentIndex - 1, 0);
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
       updateCarousel();
     });
 
     nextBtn.addEventListener("click", () => {
-      currentIndex = Math.min(currentIndex + 1, slides.length - 1);
+      currentIndex = (currentIndex + 1) % totalSlides;
       updateCarousel();
     });
 
-    // Recompute slideWidth if the window resizes
+    // Reposition after window resize:
     window.addEventListener("resize", () => {
-      setTimeout(() => {
-        const newWidth = slides[0].getBoundingClientRect().width + parseInt(getComputedStyle(slides[0]).marginRight);
-        carouselInner.style.transition = "none";
-        currentIndex = Math.min(currentIndex, slides.length - 1);
-        carouselInner.style.transform = `translateX(-${currentIndex * newWidth}px)`;
-        setTimeout(() => carouselInner.style.transition = "transform 0.5s ease-in-out", 50);
-      }, 100);
+      // A tiny delay so layout has recalculated
+      setTimeout(updateCarousel, 100);
     });
   })();
 </script>
+
 </body>
 </html>
