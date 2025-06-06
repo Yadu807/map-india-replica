@@ -66,47 +66,47 @@
       color: var(--footer-text);
     }
 
-    /* 1. Make sure each card has position: relative */
+   
   .card {
     position: relative;
-    background-color: #1f1f1f; /* dark gray, or whatever matches your design */
-    border-radius: 0.5rem;     /* same as Tailwind’s rounded-lg */
+    background-color: #1f1f1f; 
+    border-radius: 0.5rem;     
     overflow: hidden;
   }
 
-  /* 2. The “underline” starts at 0 width, sits at bottom-left */
+ 
   .card-underline {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 0.25rem;               /* matches Tailwind’s h-1 */
+    height: 0.25rem;               
     width: 0;
-    background-color: #ec008c;      /* exactly the pink you want (Tailwind’s rose-600) */
-    transition: width 0.3s ease;    /* animate over 300ms */
+    background-color: #ec008c;      
+    transition: width 0.3s ease;    
   }
   .card-underline-white {
   background-color: #ffffff;
 }
 .card-underline-pink {
-  background-color: #ec008c; /* your pink used elsewhere */
+  background-color: #ec008c; 
 }
 
 .card-underline-yellow {
-  background-color: #f9b700; /* MAP’s yellow */
+  background-color: #f9b700; 
 }
 .card-underline-red {
-  background-color: #f11014; /* MAP’s yellow */
+  background-color: #f11014; 
 }
 
 
-  /* 3. When the user hovers the parent .card, grow width to 100% */
+ 
   .card:hover .card-underline {
     width: 100%;
   }
   
 
   .max-w-between-6xl-7xl {
-    max-width: 76rem; /* or whatever intermediate value you prefer */
+    max-width: 76rem; 
   }
 
   .max-w-between-6xl-7xl {
@@ -222,7 +222,7 @@
 <section class="bg-black text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     
-    <!-- Header Row: Title + Subtitle + Subscribe Button -->
+    <!-- -->
     <div class="flex flex-col md:flex-row items-center justify-between">
       <div class="mb-8 md:mb-0">
         <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white" tabindex="0">
@@ -233,7 +233,7 @@
         </p>
       </div>
       <a
-        href="https://map-india.org/newsletter/"
+        href=""
         target="_self"
         tabindex="0"
         class="hidden md:inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded"
@@ -242,11 +242,11 @@
       </a>
     </div>
 
-      <!-- Carousel: outer viewport -->
+      <!-- Carousel -->
     <div class="relative mt-12">
-      <!-- 1) Overflow-hidden viewport, 100% width -->
+     
       <div class="w-full overflow-hidden">
-        <!-- 2) Inner flex holding all slides -->
+       
         <div
           id="carousel-inner"
           class="flex transition-transform duration-500 ease-in-out"
@@ -315,7 +315,7 @@
             </div>
           </div>
           
-          <!-- Slide 4 (duplicate for demonstration) -->
+          <!-- Slide 4  -->
           <div class="relative flex-none w-[90%] md:w-[75%] lg:w-[60%] pr-6">
             <img
               src="4.png"
@@ -376,8 +376,8 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Card 1 -->
-      <article class="card"> <!-- added “card” here -->
-        <!-- Image + “On View” Tag -->
+      <article class="card"> 
+       
         <figure class="relative">
           <img
             src="c1.jpg"
@@ -473,14 +473,14 @@
 
 <!-- Memberships Banner -->
 <section class="relative mx-auto max-w-between-6xl-7xl overflow-hidden rounded-lg">
-  <!-- Mobile Image (visible on < lg) -->
+  <!-- Mobile Image -->
   <img
-    src="https://map-india.org/wp-content/uploads/2024/11/Homepage-CTA-Banner-Mobile-with-Gradient.jpg"
+    src="clm.jpg"
     alt="Become a MAP Member (mobile banner)"
     class="block lg:hidden w-full h-auto object-cover"
   />
 
-  <!-- Desktop Image (visible on ≥ lg) -->
+  <!-- Desktop Image -->
   <img
     src="cl.jpg"
     alt="Become a MAP Member (desktop banner)"
@@ -1026,11 +1026,11 @@
     const totalSlides = slides.length;
     let currentIndex = 0;
 
-    // Compute one slide’s full width (including its right padding/margin):
+   
     function getSlideWidth() {
       const slide = slides[0];
       const style = getComputedStyle(slide);
-      // element width + right padding + right border + right margin
+      
       const width = slide.getBoundingClientRect().width;
       const marginRight = parseFloat(style.marginRight);
       return width + marginRight;
@@ -1052,9 +1052,9 @@
       updateCarousel();
     });
 
-    // Reposition after window resize:
+   
     window.addEventListener("resize", () => {
-      // A tiny delay so layout has recalculated
+      
       setTimeout(updateCarousel, 100);
     });
   })();
